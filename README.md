@@ -62,5 +62,5 @@ Delete a movie. Requires Basic authentication.
 - Enviroment: Robin_HW2
 
 ## Postman Link
-
+[<img src="https://run.pstmn.io/button.svg" alt="Run In Postman" style="width: 128px; height: 32px;">](https://app.getpostman.com/run-collection/32232262-5ef5173c-2663-4510-bf95-616902c386ae?action=collection%2Ffork&source=rip_markdown&collection-url=entityId%3D32232262-5ef5173c-2663-4510-bf95-616902c386ae%26entityType%3Dcollection%26workspaceId%3Dca3c3d1e-eea4-46ea-b8aa-d5044f56b4cf)
 
