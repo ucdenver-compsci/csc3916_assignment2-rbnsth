@@ -22,6 +22,7 @@ These instructions will get you a copy of the project up and running on your loc
 ```bash
 1. git clone https://github.com/your-username/movie-api.git
 2. Install dependencies: `npm install`
+```
 
 ## Usage
 
