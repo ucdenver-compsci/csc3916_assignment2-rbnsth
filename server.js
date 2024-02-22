@@ -73,24 +73,6 @@ router.post('/signin', (req, res) => {
 });
 
 router.route('/testcollection')
-    .get(authController.isAuthenticated, (req, res) => {
-        console.log(req.body);
-        res = res.status(200);
-        if (req.get('Content-Type')) {
-            res = res.type(req.get('Content-Type'));
-        }
-        var o = getJSONObjectForMovieRequirement(req);
-        res.json(o);
-    })
-    .post(authController.isAuthenticated, (req, res) => {
-        console.log(req.body);
-        res = res.status(200);
-        if (req.get('Content-Type')) {
-            res = res.type(req.get('Content-Type'));
-        }
-        var o = getJSONObjectForMovieRequirement(req);
-        res.json(o);
-    })
     .delete(authController.isAuthenticated, (req, res) => {
         console.log(req.body);
         res = res.status(200);
@@ -113,46 +95,45 @@ router.route('/testcollection')
     );
 
 router.route('/movies')
-    .get(authJwtController.isAuthenticated, (req, res) => {
-        console.log(req.body);
-        res = res.status(200);
-        if (req.get('Content-Type')) {
-            res = res.type(req.get('Content-Type'));
-        }
+    .get((req, res) => {
         var o = getJSONObjectForMovieRequirement(req);
+        o.status = 200;
+        o.message = "GET movies";
+        o.query = req.query;
+        o.env = process.env.UNIQUE_KEY;
         res.json(o);
     })
-    //crud
-    .post(authJwtController.isAuthenticated, (req, res) => {
-        console.log(req.body);
-        res = res.status(200);
-        if (req.get('Content-Type')) {
-            res = res.type(req.get('Content-Type'));
-        }
+    .post((req, res) => {
         var o = getJSONObjectForMovieRequirement(req);
-        res.json(o);
-    })
-    .delete(authJwtController.isAuthenticated, (req, res) => {
-        console.log(req.body);
-        res = res.status(200);
-        if (req.get('Content-Type')) {
-            res = res.type(req.get('Content-Type'));
-        }
-        var o = getJSONObjectForMovieRequirement(req);
+        o.status = 200;
+        o.message = "movie saved";
+        o.query = req.query;
+        o.env = process.env.UNIQUE_KEY;
         res.json(o);
     })
     .put(authJwtController.isAuthenticated, (req, res) => {
-        console.log(req.body);
-        res = res.status(200);
-        if (req.get('Content-Type')) {
-            res = res.type(req.get('Content-Type'));
-        }
         var o = getJSONObjectForMovieRequirement(req);
+        o.status = 200;
+        o.message = "movie updated";
+        o.query = req.query;
+        o.env = process.env.UNIQUE_KEY;
         res.json(o);
+    })
+    .delete(authController.isAuthenticated, (req, res) => {
+        var o = getJSONObjectForMovieRequirement(req);
+        o.status = 200;
+        o.message = "movie deleted";
+        o.query = req.query;
+        o.env = process.env.UNIQUE_KEY;
+        res.json(o);
+    })
+    .all((req, res) => {
+        res.status(405).send({ status: 405, message: 'HTTP method not supported.' });
     });
 
+
 app.use('/', router);
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8000;
 app.listen(port, () => {
     console.log('Server listening on port ' + port);
 })
