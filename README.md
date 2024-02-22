@@ -25,7 +25,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ## Usage
 
-1. Start the server: `npm start`
+1. Start the server: `npm run start`
 2. Access the API endpoints through http://localhost:3000 (or configured port is):
 
    - GET /movies: Retrieve a list of movies.
