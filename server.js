@@ -133,7 +133,7 @@ router.route('/movies')
 
 
 app.use('/', router);
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 8003;
 app.listen(port, () => {
     console.log('Server listening on port ' + port);
 })
