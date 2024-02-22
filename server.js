@@ -10,7 +10,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var authController = require('./auth');
 var authJwtController = require('./auth_jwt');
-db = require('./db')(); //hack
+db = require('./db')(); //hack 
 var jwt = require('jsonwebtoken');
 var cors = require('cors');
 
