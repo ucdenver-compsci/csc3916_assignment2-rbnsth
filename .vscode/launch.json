@@ -22,12 +22,10 @@
             "type": "node"
         },
         {
-            "args": [
-                "-r dotenv/config",
-            ],
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
+            "envFile": "${workspaceFolder}/.env",
             "skipFiles": [
                 "<node_internals>/**"
             ],
